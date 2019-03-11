@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -58,7 +60,14 @@ public abstract class FileTransformer implements IFileVisitor {
        * writer has been decorated by the concrete subclass!). You need to write a loop to read the
        * characters and write them to the writer.
        */
-      
+      char[] buffer = new char[32];
+
+      int read = reader.read(buffer);
+      while (read  > 0) {
+        writer.write(buffer, 0, read);
+        read = reader.read(buffer);
+      }
+
       reader.close();
       writer.flush();
       writer.close();
