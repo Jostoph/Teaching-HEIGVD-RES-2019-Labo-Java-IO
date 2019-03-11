@@ -152,7 +152,7 @@ public class Application implements IApplication {
         String path = file.getPath();
         try {
           System.out.println(path);
-          writer.write(path);
+          writer.write(path + "\n");
         } catch (IOException ioe) {
           LOG.info("Error in writing");
         }
