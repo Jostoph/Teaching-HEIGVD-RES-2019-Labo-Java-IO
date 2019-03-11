@@ -155,7 +155,6 @@ public class Application implements IApplication {
         } catch (IOException ioe) {
           LOG.info("Error in writing");
         }
-
       }
     });
   }

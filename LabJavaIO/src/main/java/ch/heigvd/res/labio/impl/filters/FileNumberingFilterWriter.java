@@ -28,7 +28,6 @@ public class FileNumberingFilterWriter extends FilterWriter {
     super(out);
     this.lineNum = 1;
     this.rBreak = false;
-
   }
 
   @Override
