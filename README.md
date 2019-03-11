@@ -6,9 +6,26 @@ We changed the project structure. In previous editions, there was a "test" proje
 
 **Warning: do NOT change the code in the test packages**
 
+### How many branches should I create? How many PRs? When?
+
+For this lab, we will try the following workflow:
+* create a branch for the entire lab (you call it "dev", "lab" or whatever you want)
+* commit code as soon as possible and push the branch to your fork
+* open a PR. In the name of the PR, start with `[WIP] `. This makes it easy for us to see that you are still working on the lab (Work In Progress) 
+* even if tests are still red, we have a communication space while you work on the lab
+* whenever you push a new commit, we will be able to see it (and possibly to comment it)
+* at some point, all your tests will be green: you can then signal that you are done; for that, change the name of your PR. Replace `[WIP] ` with `[TOREVIEW] `.
+
+Push commits as often as possible (whenever you make progress, turn a test green, etc.).
+
+If you want to use private branches, you can do so. But then, don't create individual PRs.
+
+Final note: because you all work in the same packages, we will not merge (more than one) PR at the end of the lab. But we will be able to get your branches and evaluate them.
+
+
 ### About previous versions of this lab
 
-Before reading this documentation and diving into the code, you should watch [this webcast](https://www.youtube.com/watch?v=qgncWAUqcbY&index=1&list=PLfKkysTy70QYD00EqEabdwyDNTPwLcsFV), which shows a **demo** of the application that you will implement. Later on, you might also watch [this webcast](https://www.youtube.com/watch?v=v_ZpVgf0lGc&index=2&list=PLfKkysTy70QYD00EqEabdwyDNTPwLcsFV), which gives you some hints about the **code structure**.
+Before reading this documentation and diving into the code, you should watch [this webcast](https://www.youtube.com/watch?v=qgncWAUqcbY&list=PLfKkysTy70QYVU0wz_n14gA07c3PdYm3_&index=2), which shows a **demo** of the application that you will implement. Later on, you might also watch [this webcast](https://www.youtube.com/watch?v=v_ZpVgf0lGc&list=PLfKkysTy70QYVU0wz_n14gA07c3PdYm3_&index=3), which gives you some hints about the **code structure**.
 
 If you watch carefully, you will see that in 2015, we were using a web service called [iheartquotes](http://www.iheartquotes.com/) to fetch dynamic text data. This service is now down, so this year we had to look for [a replacement](http://www.icndb.com/api/). We also had to adapt the code of the starter project a bit. You will see why and how when in the commented source code.
 
