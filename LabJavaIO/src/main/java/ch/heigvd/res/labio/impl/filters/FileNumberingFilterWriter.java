@@ -1,7 +1,5 @@
 package ch.heigvd.res.labio.impl.filters;
 
-import ch.heigvd.res.labio.impl.Utils;
-
 import java.io.FilterWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -26,7 +24,9 @@ public class FileNumberingFilterWriter extends FilterWriter {
 
   public FileNumberingFilterWriter(Writer out) {
     super(out);
+    // current line number
     this.lineNum = 1;
+    // flag to keep track of \r line breaks
     this.rBreak = false;
   }
 
@@ -45,11 +45,15 @@ public class FileNumberingFilterWriter extends FilterWriter {
   @Override
   public void write(int c) throws IOException {
     if(lineNum == 1) {
+      // in case of first line, start by writing the line
       super.write(lineNum + "\t",0, (int) (Math.log10(lineNum) + 2));
       lineNum++;
     }
 
+    // (int) (Math.log10(lineNum) + 1) to get the number of digits
+
     if(c == '\n') {
+      // handle the \n and \r\n case
       rBreak = false;
       super.write("\n" + lineNum + "\t",0, (int) (Math.log10(lineNum) + 3));
       lineNum++;
@@ -58,6 +62,7 @@ public class FileNumberingFilterWriter extends FilterWriter {
       super.write(c);
     } else {
       if(rBreak) {
+        // handle the \r case
         rBreak = false;
         super.write(lineNum + "\t",0, (int) (Math.log10(lineNum) + 2));
         lineNum++;

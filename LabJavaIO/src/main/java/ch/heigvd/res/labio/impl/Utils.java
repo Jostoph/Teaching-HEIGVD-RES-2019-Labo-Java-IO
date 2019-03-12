@@ -20,6 +20,8 @@ public class Utils {
    * contain any line separator, then the first element is an empty string.
    */
   public static String[] getNextLine(String lines) {
+    // Implementation with regex assuming a line doesn't contain more than one line break type
+    // Not used in Application
     String[] result;
     if(lines.contains("\r\n") || lines.contains("\n")) {
       result = lines.split("(?<=\\r?\\n)", 2);

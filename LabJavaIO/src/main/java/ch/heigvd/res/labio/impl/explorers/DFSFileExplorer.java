@@ -17,10 +17,13 @@ public class DFSFileExplorer implements IFileExplorer {
 
   @Override
   public void explore(File rootDirectory, IFileVisitor vistor) {
+    // get children files/directories
     File[] childs = rootDirectory.listFiles();
 
+    // visit current directory
     vistor.visit(rootDirectory);
 
+    // sort children and recursive explore/visit
     if(childs != null) {
       Arrays.sort(childs);
       for(File child : childs) {
